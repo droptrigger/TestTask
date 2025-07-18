@@ -36,7 +36,7 @@ namespace Test.Core.Extensions
 
             double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
 
-            return R * c;
+            return Math.Round(R * c, 2);
         }
 
         private static double ToRadians(double angle) => angle * Math.PI / 180.0;
