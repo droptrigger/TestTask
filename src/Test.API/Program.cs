@@ -1,3 +1,5 @@
+using Test.Core.Repositories.Implementations;
+using Test.Core.Repositories.Interfaces;
 using Test.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Репозитории
+builder.Services.AddScoped<IFieldRepository, FieldRepository>();
 
 // Сервисы
 builder.Services.AddScoped<FieldService>();
