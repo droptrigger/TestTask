@@ -1,4 +1,5 @@
 ﻿using Test.Classes;
+using Test.Classes.DTOs.Requests;
 using Test.Core.Extensions;
 using Test.Core.Repositories.Interfaces;
 
@@ -55,12 +56,18 @@ namespace Test.Core.Services
         /// <returns>
         /// Расстояние в метрах, иначе -1
         /// </returns>
-        public async Task<double> GetDistanceToTheCenterAsync(Point point, int fieldId)
+        public async Task<double> GetDistanceToTheCenterAsync(GetDistanceDTO getDistanceDTO)
         {
-            var center = await _fieldRepository.GetByIdAsync(fieldId);
+            var center = await _fieldRepository.GetByIdAsync(getDistanceDTO.Id);
 
             if (center is null)
                 return -1.0;
+
+            Point point = new()
+            {
+                Latitude = getDistanceDTO.Lat,
+                Longitude = getDistanceDTO.Lng
+            };
 
             return DistanceCalculator.Calculate(point, center.Location.Center);
         }

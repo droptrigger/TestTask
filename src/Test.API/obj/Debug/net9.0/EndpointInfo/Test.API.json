@@ -46,6 +46,47 @@
         ],
         "parameters": [
           {
+            "name": "Lat",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Lng",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/fields/inside": {
+      "get": {
+        "tags": [
+          "Field"
+        ],
+        "parameters": [
+          {
             "name": "Latitude",
             "in": "query",
             "schema": {
@@ -59,14 +100,6 @@
             "schema": {
               "type": "number",
               "format": "double"
-            }
-          },
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             }
           }
         ],

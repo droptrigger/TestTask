@@ -18,6 +18,32 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "Lat",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lng",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.API.Controllers.FieldController",
+    "Method": "GetInside",
+    "RelativePath": "api/fields/inside",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
         "Name": "Latitude",
         "Type": "System.Double",
         "IsRequired": false
@@ -25,11 +51,6 @@
       {
         "Name": "Longitude",
         "Type": "System.Double",
-        "IsRequired": false
-      },
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

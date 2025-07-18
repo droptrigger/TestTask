@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Test.Classes;
+using Test.Classes.DTOs.Requests;
 using Test.Core.Services;
 
 namespace Test.API.Controllers
@@ -38,9 +39,9 @@ namespace Test.API.Controllers
         }
 
         [HttpGet("distance")]
-        public async Task<IActionResult> GetDistanceFromToId([FromQuery] Point point, [FromQuery] int id)
+        public async Task<IActionResult> GetDistanceFromToId([FromQuery] GetDistanceDTO getDistanceDTO)
         {
-            var result = await _fieldService.GetDistanceToTheCenterAsync(point, id);
+            var result = await _fieldService.GetDistanceToTheCenterAsync(getDistanceDTO);
 
             if (result == -1.0)
                 return NotFound();
