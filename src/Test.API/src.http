@@ -10,5 +10,10 @@ Accept: application/json
 
 ###
 
-GET {{src_HostAddress}}/api/fields/distance?lat=1
+GET {{src_HostAddress}}/api/fields/distance?lat=41.34141&lng=45.68506&id=1
+Accept: application/json
+
+###
+
+GET {{src_HostAddress}}/api/fields/inside?latitude=41.33806&longitude=45.69625
 Accept: application/json
