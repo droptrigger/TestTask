@@ -1,3 +1,5 @@
+using Test.Core.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -8,6 +10,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Сервисы
+builder.Services.AddScoped<FieldService>();
 
 var app = builder.Build();
 
