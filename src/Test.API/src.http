@@ -1,6 +1,14 @@
 @src_HostAddress = http://localhost:5250
 
-GET {{src_HostAddress}}/weatherforecast/
+GET {{src_HostAddress}}/api/fields/
+Accept: application/json
+ 
+###
+
+GET {{src_HostAddress}}/api/fields/size?id=1
 Accept: application/json
 
 ###
+
+GET {{src_HostAddress}}/api/fields/distance?lat=1
+Accept: application/json
