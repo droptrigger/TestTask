@@ -41,7 +41,7 @@ dotnet restore src
 #### 2. Запустить проект
 
 ``` bash
-dotnet run --project src/Test.API
+dotnet run --launch-profile https --project src/Test.API
 ```
 
 #### 3. Приложение после запуска доступно по адресу:
