@@ -10,7 +10,7 @@ namespace Test.Core.Extensions.Parsers
     /// </summary>
     public class FileKmlParser : IFileParser<List<Field>>
     {
-        public async Task<List<Field>> Parse(string centroidsPath, string fieldsPath)
+        public async Task<List<Field>?> Parse(string centroidsPath, string fieldsPath)
         {
             var ns = XNamespace.Get("http://www.opengis.net/kml/2.2");
 

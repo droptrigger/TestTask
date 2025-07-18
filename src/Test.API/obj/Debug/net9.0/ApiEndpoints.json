@@ -11,6 +11,32 @@
   },
   {
     "ContainingType": "Test.API.Controllers.FieldController",
+    "Method": "GetDistanceFromToId",
+    "RelativePath": "api/fields/distance",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Latitude",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Longitude",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.API.Controllers.FieldController",
     "Method": "GetSizeById",
     "RelativePath": "api/fields/size",
     "HttpMethod": "GET",

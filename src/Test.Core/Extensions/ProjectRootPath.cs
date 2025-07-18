@@ -1,7 +1,15 @@
 ﻿namespace Test.Core.Extensions
 {
+    /// <summary>
+    /// Статический класс для полчения root папки проекта
+    /// </summary>
     public static class ProjectRootPath
     {
+        /// <summary>
+        /// Получение root папки проекта
+        /// </summary>
+        /// <returns>Путь до root папки</returns>
+        /// <exception cref="DirectoryNotFoundException">Ошибка, если папка не найдена</exception>
         public static string GetProjectRootPath()
         {
             var dir = AppContext.BaseDirectory;

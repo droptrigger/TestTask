@@ -1,6 +1,8 @@
-﻿using Test.Classes;
+﻿using Newtonsoft.Json.Linq;
+using Test.Classes;
 using Test.Core.Extensions;
 using Test.Core.Extensions.Parsers;
+using Test.Core.Repositories.Implementations;
 using Xunit.Abstractions;
 
 namespace Test.Test
@@ -41,8 +43,51 @@ namespace Test.Test
                     _output.WriteLine($"\t\t- lat = {pt.Latitude}, lng = {pt.Longitude}");
                 }
 
-                _output.WriteLine(new string('-', 40));
+                _output.WriteLine(new string('-', 50));
             }
         }
+
+        /// <summary>
+        /// Дистанция от левого верхнего угла до центра первого поля - 1 километр
+        /// </summary>
+        [Fact]
+        public async void TestDistance1KM()
+        {
+            FieldRepository repository = new(); 
+
+            Field? field = await repository.GetByIdAsync(1);
+            Point point = new Point()
+            {
+                Latitude = 41.33468,
+                Longitude = 45.7074
+            };
+
+            double distance = DistanceCalculator.Calculate(point, field.Location.Center);
+
+            Assert.Equal(1000, Math.Floor(distance / 1000) * 1000);
+        }
+
+        /// <summary>
+        /// Поля с индентификатором -1 не существует
+        /// </summary>
+        /// <returns></returns>
+        [Fact]
+        public async Task NullExceptionTestDistance()
+        {
+            FieldRepository repository = new();
+
+            Field? field = await repository.GetByIdAsync(-1);
+            Point point = new Point()
+            {
+                Latitude = 41.33468,
+                Longitude = 45.7074
+            };
+
+            await Assert.ThrowsAsync<NullReferenceException>(async () =>
+            {
+                double distance = DistanceCalculator.Calculate(point, field.Location.Center);
+            });
+        }
+
     }
 }
