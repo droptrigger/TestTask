@@ -48,7 +48,7 @@ namespace Test.Core.Extensions
                 area += x1 * y2 - x2 * y1;
             }
 
-            return Math.Abs(area) / 2.0;
+            return Math.Round(Math.Abs(area) / 2.0, 2);
         }
 
         /// <summary>
