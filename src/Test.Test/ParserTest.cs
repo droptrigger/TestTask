@@ -48,7 +48,7 @@ namespace Test.Test
         }
 
         /// <summary>
-        /// Дистанция от левого верхнего угла до центра первого поля - 1 километр
+        /// Дистанция от левого верхнего угла до центра первого поля примерно 1 километр
         /// </summary>
         [Fact]
         public async void TestDistance1KM()
@@ -86,6 +86,43 @@ namespace Test.Test
             await Assert.ThrowsAsync<NullReferenceException>(async () =>
             {
                 double distance = DistanceCalculator.Calculate(point, field.Location.Center);
+            });
+        }
+
+        [Fact]
+        public async Task TestPointInside1Id()
+        {
+            FieldRepository repository = new();
+
+            List<Field>? fields = await repository.GetAllAsync();
+            Point point = new Point()
+            {
+                Latitude = 41.33473,
+                Longitude = 45.68522
+            };
+
+            var field = InsideChecker.Check(point, fields);
+
+            Assert.Equal(1, field.Id);
+        }
+
+        [Fact]
+        public async Task TestPointNotInside()
+        {
+            FieldRepository repository = new();
+
+            List<Field>? fields = await repository.GetAllAsync();
+            Point point = new Point()
+            {
+                Latitude = 100,
+                Longitude = 100
+            };
+
+            var field = InsideChecker.Check(point, fields);
+
+            await Assert.ThrowsAsync<NullReferenceException>(async () =>
+            {
+                Assert.Equal(1, field.Id);
             });
         }
 
