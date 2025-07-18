@@ -35,7 +35,7 @@ cd TestTask
 #### 1. Восстановить зависимости
 
 ``` bash
-dotnet restore
+dotnet restore src
 ```
 
 #### 2. Запустить проект
