@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Drawing;
 using Test.Classes;
 using Test.Core.Services;
 
@@ -47,6 +46,17 @@ namespace Test.API.Controllers
                 return NotFound();
 
             return Ok(result);
+        }
+
+        [HttpGet("inside")]
+        public async Task<IActionResult> GetInside([FromQuery] Point point)
+        {
+            var result = await _fieldService.GetFieldInsideAsync(point);
+
+            if (result == null)
+                return Ok(false);
+
+            return Ok($"id: {result.Id}, name: {result.Name}");
         }
     }
 }
