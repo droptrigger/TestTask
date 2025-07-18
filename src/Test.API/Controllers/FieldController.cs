@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
+using Test.Classes;
 using Test.Core.Services;
 
 namespace Test.API.Controllers
@@ -30,10 +32,21 @@ namespace Test.API.Controllers
         {
             var size = await _fieldService.GetSizeWithIdAsync(id);
 
-            if (size == 0.0)
+            if (size == -1.0)
                 return NotFound();
 
             return Ok(size);
+        }
+
+        [HttpGet("distance")]
+        public async Task<IActionResult> GetDistanceFromToId([FromQuery] Point point, [FromQuery] int id)
+        {
+            var result = await _fieldService.GetDistanceToTheCenterAsync(point, id);
+
+            if (result == -1.0)
+                return NotFound();
+
+            return Ok(result);
         }
     }
 }
