@@ -41,6 +41,9 @@ namespace Test.Core.Services
         {
             var field = await _fieldRepository.GetByIdAsync(id);
 
+            if (field is null)
+                return -1.0;
+
             return field.Size;
         }
 
@@ -60,6 +63,21 @@ namespace Test.Core.Services
                 return -1.0;
 
             return DistanceCalculator.Calculate(point, center.Location.Center);
+        }
+
+        /// <summary>
+        /// Асинхронная проверка принадлежности точки к какому-нибудь из полей
+        /// </summary>
+        /// <param name="point">Точка</param>
+        /// <returns>Объект класса <see cref="Field"/>, иначе null</returns>
+        public async Task<Field?> GetFieldInsideAsync(Point point)
+        {
+            var fields = await _fieldRepository.GetAllAsync();
+
+            if (fields is null)
+                return null;
+
+            return InsideChecker.Check(point, fields);
         }
     }
 }
