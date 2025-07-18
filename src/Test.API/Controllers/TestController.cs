@@ -4,7 +4,7 @@ namespace Test.API.Controllers
 {
     [Route("api/")]
     [ApiController]
-    public class TestController
+    public class TestController : ControllerBase
     {
         [HttpGet("ping")]
         public async Task<string> GetPong()
