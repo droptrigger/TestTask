@@ -1,6 +1,6 @@
 ﻿using Test.Classes;
 using Test.Core.Extensions;
-using Test.Core.Extensions.Parsers;
+using Test.Core.Repositories.Interfaces;
 
 namespace Test.Core.Services
 {
@@ -9,20 +9,14 @@ namespace Test.Core.Services
     /// </summary>
     public class FieldService
     {
-        private readonly FileKmlParser _parser;
-        private readonly string _centroidsPath;
-        private readonly string _fieldsPath;
+        private readonly IFieldRepository _fieldRepository;
 
         /// <summary>
         /// Конструктор
         /// </summary>
-        public FieldService() 
-        { 
-            _parser = new FileKmlParser();
-            string rootPath = ProjectRootPath.GetProjectRootPath();
-            _centroidsPath = Path.Combine(rootPath, "Points", "centroids.kml");
-            _fieldsPath = Path.Combine(rootPath, "Points", "fields.kml");
-
+        public FieldService(IFieldRepository fieldRepository) 
+        {
+            _fieldRepository = fieldRepository;
         }
 
         /// <summary>
@@ -31,9 +25,9 @@ namespace Test.Core.Services
         /// <returns>
         /// Список <see cref="List{Field}"/> полей
         /// </returns>
-        public async Task<List<Field>> GetAllFieldsAsync() 
+        public async Task<List<Field>>? GetAllFieldsAsync() 
         {
-            return await _parser.Parse(_centroidsPath, _fieldsPath);
+            return await _fieldRepository.GetAllAsync();
         }
 
         /// <summary>
@@ -41,20 +35,31 @@ namespace Test.Core.Services
         /// </summary>
         /// <param name="id">Идентификатор поля</param>
         /// <returns>
-        /// Площадь в м2, иначе 0 
+        /// Площадь в метрах кваратных, иначе -1 
         /// </returns>
         public async Task<double> GetSizeWithIdAsync(int id)
         {
-            var fields = await _parser.Parse(_centroidsPath, _fieldsPath);
+            var field = await _fieldRepository.GetByIdAsync(id);
 
-            var result = fields.FirstOrDefault(f => f.Id == id);
-
-            if (result is null)
-                return 0.0;
-
-            return result.Size;
+            return field.Size;
         }
 
+        /// <summary>
+        /// Асинхронное получение расстояния от точки до центра поля
+        /// </summary>
+        /// <param name="point">Точка</param>
+        /// <param name="fieldId">Идентификатор поля, у которого взять центр</param>
+        /// <returns>
+        /// Расстояние в метрах, иначе -1
+        /// </returns>
+        public async Task<double> GetDistanceToTheCenterAsync(Point point, int fieldId)
+        {
+            var center = await _fieldRepository.GetByIdAsync(fieldId);
 
+            if (center is null)
+                return -1.0;
+
+            return DistanceCalculator.Calculate(point, center.Location.Center);
+        }
     }
 }
