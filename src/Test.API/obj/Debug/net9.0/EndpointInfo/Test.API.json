@@ -5,10 +5,44 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/coords/ping": {
-      "post": {
+    "/api/fields": {
+      "get": {
         "tags": [
-          "Coords"
+          "Field"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/fields/size": {
+      "get": {
+        "tags": [
+          "Field"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ping": {
+      "get": {
+        "tags": [
+          "Test"
         ],
         "responses": {
           "200": {

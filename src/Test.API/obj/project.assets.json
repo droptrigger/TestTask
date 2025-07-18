@@ -110,6 +110,29 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Test.Classes/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Test.Classes.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Test.Classes.dll": {}
+        }
+      },
+      "Test.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Test.Classes": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Test.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Test.Core.dll": {}
+        }
       }
     }
   },
@@ -469,13 +492,25 @@
         "swashbuckle.aspnetcore.swaggerui.9.0.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Test.Classes/1.0.0": {
+      "type": "project",
+      "path": "../Test.Classes/Test.Classes.csproj",
+      "msbuildProject": "../Test.Classes/Test.Classes.csproj"
+    },
+    "Test.Core/1.0.0": {
+      "type": "project",
+      "path": "../Test.Core/Test.Core.csproj",
+      "msbuildProject": "../Test.Core/Test.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.AspNetCore.OpenApi >= 9.0.7",
       "Swashbuckle.AspNetCore >= 9.0.3",
-      "Swashbuckle.AspNetCore.SwaggerUI >= 9.0.3"
+      "Swashbuckle.AspNetCore.SwaggerUI >= 9.0.3",
+      "Test.Classes >= 1.0.0",
+      "Test.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -509,7 +544,14 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\vasya\\OneDrive\\Рабочий стол\\программирвоание\\Test\\src\\Test.Classes\\Test.Classes.csproj": {
+              "projectPath": "C:\\Users\\vasya\\OneDrive\\Рабочий стол\\программирвоание\\Test\\src\\Test.Classes\\Test.Classes.csproj"
+            },
+            "C:\\Users\\vasya\\OneDrive\\Рабочий стол\\программирвоание\\Test\\src\\Test.Core\\Test.Core.csproj": {
+              "projectPath": "C:\\Users\\vasya\\OneDrive\\Рабочий стол\\программирвоание\\Test\\src\\Test.Core\\Test.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

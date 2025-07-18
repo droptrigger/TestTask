@@ -1,9 +1,35 @@
 [
   {
-    "ContainingType": "Test.API.Controllers.CoordsController",
-    "Method": "AddEvaluationAsync",
-    "RelativePath": "api/coords/ping",
-    "HttpMethod": "POST",
+    "ContainingType": "Test.API.Controllers.FieldController",
+    "Method": "GetAll",
+    "RelativePath": "api/fields",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.API.Controllers.FieldController",
+    "Method": "GetSizeById",
+    "RelativePath": "api/fields/size",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Test.API.Controllers.TestController",
+    "Method": "GetPong",
+    "RelativePath": "api/ping",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],

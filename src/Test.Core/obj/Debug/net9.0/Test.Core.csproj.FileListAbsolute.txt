@@ -1,0 +1,16 @@
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\bin\Debug\net9.0\Test.Core.deps.json
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\bin\Debug\net9.0\Test.Core.dll
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\bin\Debug\net9.0\Test.Core.pdb
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\bin\Debug\net9.0\Test.Classes.dll
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\bin\Debug\net9.0\Test.Classes.pdb
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.csproj.AssemblyReference.cache
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.AssemblyInfoInputs.cache
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.AssemblyInfo.cs
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.csproj.CoreCompileInputs.cache
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.sourcelink.json
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.csproj.Up2Date
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.dll
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\refint\Test.Core.dll
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\Test.Core.pdb
+C:\Users\vasya\OneDrive\Рабочий стол\программирвоание\Test\src\Test.Core\obj\Debug\net9.0\ref\Test.Core.dll

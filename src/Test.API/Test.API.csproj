@@ -12,4 +12,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Test.Classes\Test.Classes.csproj" />
+    <ProjectReference Include="..\Test.Core\Test.Core.csproj" />
+  </ItemGroup>
+
 </Project>
