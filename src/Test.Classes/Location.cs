@@ -13,6 +13,6 @@
         /// <summary>
         /// Полигон
         /// </summary>
-        public Point[] Polygon { get; set; } = null!;
+        public List<Point> Polygon { get; set; } = null!;
     }
 }
